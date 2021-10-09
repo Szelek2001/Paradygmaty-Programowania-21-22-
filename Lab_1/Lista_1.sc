@@ -32,6 +32,7 @@ def replicate[A](x: A, n: Int): List[A] = {
 
 replicate("le",3) == List("le","le","le")
 replicate("kok",0) == Nil
+replicate(4,2) == List(4,4)
 
 //Zadanie 4
 def sqrList(xs: List[Int]): List[Int] = {
@@ -64,3 +65,4 @@ def listLength[A](xs: List[A]): Int = {
 
 listLength(List("a","v","d"))==3
 listLength(List("msms","qwqwqw","pool","asdopkasdo"))==4
+listLength(List())==0
