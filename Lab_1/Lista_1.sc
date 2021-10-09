@@ -7,6 +7,7 @@ def flatten1[A](xss: List[List[A]]): List[A] = {
   else xss.head ::: flatten1(xss.tail)
 }
 flatten1(List(List(2,3),List(3,5))) == List(2,3,3,5)
+flatten1(List(List("kot","pchla"),List("conda","mamamija"))) == List("kot","pchla","conda","mamamija")
 flatten1(List(Nil))==Nil
 
 //Zadanie 2
@@ -18,7 +19,7 @@ def count[A](x: A, xs: List[A]): Int = {
   else 0}
 
 count("x",List("x","x","x","x"))==4
-count("mama",List("mama","tata","x","x"))==1
+count(2,List(3,2,1,1))==1
 count("y",List("2","3","4","fd"))==0
 
 
@@ -53,6 +54,8 @@ def palindrome[A](xs: List[A]): Boolean = {
 
 palindrome(List("k","i","1")) == false
 palindrome(List("k","a","j","a","k")) == true
+palindrome(List(2,3,2,3,2)) == true
+
 
 
 //Zadanie 6
@@ -63,6 +66,6 @@ def listLength[A](xs: List[A]): Int = {
   else 0
 }
 
-listLength(List("a","v","d"))==3
+listLength(List(1,3,2))==3
 listLength(List("msms","qwqwqw","pool","asdopkasdo"))==4
 listLength(List())==0
