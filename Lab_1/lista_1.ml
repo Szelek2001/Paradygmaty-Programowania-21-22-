@@ -46,4 +46,16 @@ let  palindrome(xs) = (
     xs= List.rev xs
 );;
 
-palindrome ["xd";"xd"] = ["xd";"xd"]
+palindrome ["xd";"xd"] = true;;
+palindrome [1;2;1] = true;;
+palindrome ["xd";"kek"] = false;;
+
+(*Zadanie 6*)
+
+let rec listLength xs =
+    if   xs = [] then 0
+    else 1 + listLength(List.tl xs);;
+
+listLength ["maslo";"kawa";"mleko"]=3;;
+listLength [3;2;4;5]=4;;
+listLength []=0;;
