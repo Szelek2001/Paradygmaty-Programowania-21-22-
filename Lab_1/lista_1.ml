@@ -53,7 +53,7 @@ palindrome ["xd";"kek"] = false;;
 (*Zadanie 6*)
 
 let rec listLength xs =
-    if   xs = [] then 0
+    if  xs = [] then 0
     else 1 + listLength(List.tl xs);;
 
 listLength ["maslo";"kawa";"mleko"]=3;;
