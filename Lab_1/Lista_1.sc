@@ -25,7 +25,7 @@ count("y",List("2","3","4","fd"))==0
 
 //Zadanie 3
 def replicate[A](x: A, n: Int): List[A] = {
-
+  if (n < 0) throw new Exception("ujemna ilosc powtorzen")
   if (n > 0)
     List(x) ::: replicate(x, n - 1)
   else Nil
@@ -34,6 +34,8 @@ def replicate[A](x: A, n: Int): List[A] = {
 replicate("le",3) == List("le","le","le")
 replicate("kok",0) == Nil
 replicate(4,2) == List(4,4)
+replicate(6,-2)
+
 
 //Zadanie 4
 def sqrList(xs: List[Int]): List[Int] = {

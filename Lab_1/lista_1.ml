@@ -24,13 +24,13 @@ count ("y",["2";"3";"4";"fd"])=0;;
 (*Zadanie 3*)
 
 let rec replicate(x,n) =
-    if(n>0) then [x] @ replicate(x,n-1)
+    if n < 0 then failwith "ujemna ilosc powtorzen"
+    else if(n>0) then [x] @ replicate(x,n-1)
     else [];;
 
 replicate ("x",3) = ["x";"x";"x"];;
 replicate (3,4) = [3;3;3;3];;
 replicate ("mama",0) = [];;
-
 (*Zadanie 4*)
 
 let rec sqrList xs =
