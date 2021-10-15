@@ -5,7 +5,7 @@ let rec flatten1 xss =
     if List.length  xss = 0 then []
      else List.hd xss @ flatten1(List.tl xss);;
 
-flatten1 [[1; 2]; [1; 2]; [63; 74]] = [1; 2; 1; 2; 63; 74];;
+flatten1 [[5; 6]; [1; 2; 3]] = [5; 6; 1; 2; 3];;
 flatten1 [["JANEK"; "KOT"]; ["MILOSZ"]] = ["JANEK"; "KOT"; "MILOSZ"];;
 flatten1 [] = [];;
 
@@ -17,8 +17,8 @@ let rec count(x, xs) =
     else if x=List.hd xs then 1 + count(x, List.tl xs)
     else 0 + count(x, List.tl xs);;
 
-count ("x", ["x"; "x"; "x"; "x"]) = 4;;
-count (2,[3;2;1;1])=1;;
+count ('a', ['a'; 'l'; 'a']) = 2;;
+count (2,[3;2;1;1]) = 1;;
 count ("y", ["2"; "3"; "4"; "fd"]) = 0;;
 
 (*Zadanie 3*)
@@ -28,7 +28,7 @@ let rec replicate(x, n) =
     else if(n > 0) then x :: replicate(x, n-1)
     else [];;
 
-replicate ("x", 3) = ["x"; "x"; "x"];;
+replicate ("la", 3) = ["la"; "la"; "la"];;
 replicate (3, 4) = [3; 3; 3; 3];;
 replicate ("mama", 0) = [];;
 
@@ -36,10 +36,10 @@ replicate ("mama", 0) = [];;
 
 let rec sqrList xs =
     if List.length  xs = 0 then []
-else [List.hd xs * List.hd xs] :: sqrList(List.tl xs);;
+else List.hd xs * List.hd xs :: sqrList(List.tl xs);;
 
-sqrList [3; 4; 5]=[9; 16; 25];;
-sqrList [1; 0; 3]=[1; 0; 9];;
+sqrList [1; 2; 3; -4] = [1; 4; 9; 16];;
+sqrList [1; 0; 3] = [1; 0; 9];;
 
 (*Zadanie 5*)
 
@@ -47,9 +47,9 @@ let  palindrome(xs) = (
     xs= List.rev xs
 );;
 
-palindrome ["xd"; "xd"] = true;;
+palindrome ['a'; 'l'; 'a'] = true;;
 palindrome [1; 2; 1] = true;;
-palindrome ["xd"; "kek"] = false;;
+palindrome ["mem"; "kek"] = false;;
 
 (*Zadanie 6*)
 
