@@ -25,7 +25,7 @@ count ("y", ["2"; "3"; "4"; "fd"]) = 0;;
 
 let rec replicate(x, n) =
     if n < 0 then failwith "ujemna ilosc powtorzen"
-    else if(n > 0) then [x] @ replicate(x, n-1)
+    else if(n > 0) then x :: replicate(x, n-1)
     else [];;
 
 replicate ("x", 3) = ["x"; "x"; "x"];;
@@ -36,7 +36,7 @@ replicate ("mama", 0) = [];;
 
 let rec sqrList xs =
     if List.length  xs = 0 then []
-else [List.hd xs * List.hd xs] @ sqrList(List.tl xs);;
+else [List.hd xs * List.hd xs] :: sqrList(List.tl xs);;
 
 sqrList [3; 4; 5]=[9; 16; 25];;
 sqrList [1; 0; 3]=[1; 0; 9];;
@@ -60,3 +60,5 @@ let rec listLength xs =
 listLength ["maslo"; "kawa"; "mleko"] = 3;;
 listLength [3; 2; 4; 5] = 4;;
 listLength [] = 0;;
+
+
