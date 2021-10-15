@@ -45,3 +45,14 @@ def initSegment[A](xs: List[A], ys: List[A]): Boolean =
 
 initSegment(List(1,2,3),List(1,2,3,4,5))
 initSegment(List(1,2,3),List(1,2,4,4,5))
+
+//Zadanie 6
+
+def replaceNth[A](xs: List[A], n: Int, x: A): List[A] =
+  (xs,n) match {
+    case(Nil,_) => Nil
+    case(_,0) => x :: xs.tail
+    case(_,_) => xs.head :: replaceNth(xs.tail, n-1,x)
+  }
+
+replaceNth(List('o','l','a', 'm', 'a', 'k', 'o', 't', 'a'), 1, 's')
