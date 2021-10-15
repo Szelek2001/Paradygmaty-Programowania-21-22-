@@ -5,7 +5,7 @@ def flatten1[A](xss: List[List[A]]): List[A] =
   if xss == Nil then Nil
   else xss.head ::: flatten1(xss.tail)
 
-flatten1(List(List(2, 3), List(3, 5))) == List(2, 3, 3, 5)
+flatten1(List(List(5, 6), List(1, 2, 3))) == List(5, 6, 1, 2, 3)
 flatten1(List(List("kot", "pchla"), List("conda", "mamamija"))) == List("kot", "pchla", "conda", "mamamija")
 flatten1(List(Nil)) == Nil
 
@@ -15,10 +15,9 @@ def count[A](x: A, xs: List[A]): Int =
     if (x == xs.head) 1 + count(x, xs.tail) else 0 + count(x, xs.tail)
   else 0
 
-count("x", List("x", "x", "x", "x")) == 4
+count('a', List('a', 'l', 'a')) == 2
 count(2, List(3, 2, 1, 1)) == 1
 count("y", List("2", "3", "4", "fd")) == 0
-
 
 //Zadanie 3
 def replicate[A](x: A, n: Int): List[A] =
@@ -27,12 +26,9 @@ def replicate[A](x: A, n: Int): List[A] =
     x :: replicate(x, n - 1)
   else Nil
 
-
-replicate("le", 3) == List("le", "le", "le")
+replicate("la", 3) == List("la", "la", "la")
 replicate("kok", 0) == Nil
 replicate(4, 2) == List(4, 4)
-replicate(6, -2)
-
 
 //Zadanie 4 Metoda
 def sqrList(xs: List[Int]): List[Int] =
@@ -40,7 +36,7 @@ def sqrList(xs: List[Int]): List[Int] =
     List(xs.head * xs.head) ::: sqrList(xs.tail)
   else Nil
 
-sqrList(List(1, 3, -9)) == List(1, 9, 81)
+sqrList(List(1, 2, 3, -4)) == List(1, 4, 9, 16)
 sqrList(List(0, 9, 3)) == List(0, 81, 9)
 sqrList(Nil) == Nil
 
@@ -50,7 +46,7 @@ val sqrList2: List[Int] => List[Int] = xs =>
   if xs == Nil then Nil
   else xs.head * xs.head :: sqrList2(xs.tail)
 
-sqrList2(List(1, 3, -9)) == List(1, 9, 81)
+sqrList2(List(1, 2, 3, -4)) == List(1, 4, 9, 16)
 sqrList2(List(0, 9, 3)) == List(0, 81, 9)
 sqrList2(Nil) == Nil
 
@@ -58,7 +54,7 @@ sqrList2(Nil) == Nil
 def palindrome[A](xs: List[A]): Boolean =
   xs == xs.reverse
 
-palindrome(List("k", "i", "1")) == false
+palindrome(List('a', 'l', 'a')) == true
 palindrome(List("k", "a", "j", "a", "k")) == true
 palindrome(List(2, 3, 2, 3, 2)) == true
 
