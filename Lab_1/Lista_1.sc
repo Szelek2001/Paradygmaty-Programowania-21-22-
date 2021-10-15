@@ -44,9 +44,19 @@ def sqrList(xs: List[Int]): List[Int] = {
   } else Nil
 }
 
+//Zadanie 4 Funkcja
+
+val sqrList2: List[Int]=>List[Int]=xs=>
+  if xs == Nil then Nil
+  else xs.head * xs.head :: sqrList2(xs.tail)
+
 sqrList(List(1, 3, -9)) == List(1, 9, 81)
 sqrList(List(0, 9, 3)) == List(0, 81, 9)
 sqrList(Nil) == Nil
+
+sqrList2(List(1, 3, -9)) == List(1, 9, 81)
+sqrList2(List(0, 9, 3)) == List(0, 81, 9)
+sqrList2(Nil) == Nil
 
 
 //Zadanie 5

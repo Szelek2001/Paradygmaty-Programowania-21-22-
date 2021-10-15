@@ -31,6 +31,7 @@ let rec replicate(x, n) =
 replicate ("x", 3) = ["x"; "x"; "x"];;
 replicate (3, 4) = [3; 3; 3; 3];;
 replicate ("mama", 0) = [];;
+
 (*Zadanie 4*)
 
 let rec sqrList xs =
