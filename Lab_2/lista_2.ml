@@ -17,6 +17,12 @@ let fibTail n =
 
 (*fib(42) = 267914296;;*)
 (*fibTail(42) = 267914296;;*)
+fib(0) = 0;;
+fibTail(0) = 0;;
+fib(1) = 1;;
+fibTail(1) = 1;;
+fib(10) = 55;;
+fibTail(10) = 55;;
 
 (*Zadanie 4*)
 
@@ -31,8 +37,9 @@ let rec initSegment (list1,list2) =
     | (_,[]) -> false
     | (_,_) -> if List.hd list1 = List.hd list2 then initSegment(List.tl list1, List.tl list2) else false;;
 
-initSegment([1;2;3],[1;2;3;4]);;
-initSegment([1;2;3],[1;2;4;4]);;
+initSegment([1; 2; 3], [1; 2; 3; 4]) = true;;
+initSegment([1; 2; 3], [1; 2; 4; 4]) = false;;
+initSegment([], [1; 2; 43; 4]) = true;;
 
 (*Zadanie 6*)
 
@@ -42,4 +49,6 @@ let rec replaceNth (list, n, x) =
     | (_,0) -> x :: List.tl list
     | (_,_) -> List.hd list :: replaceNth(List.tl list, n - 1, x);;
 
-replaceNth(["x";"y"], 1,"X");;
+replaceNth(['o'; 'l'; 'a'; 'm'; 'a'; 'k'; 'o' ;'t' ;'a'], 1, 's') = ['o'; 's'; 'a'; 'm'; 'a'; 'k'; 'o' ;'t' ;'a'];;
+replaceNth(['f'; 'r'; 'i'; 'z'], 3, 's') = ['f'; 'r'; 'i'; 's'];;
+replaceNth([2; 1; 3; 3], 3, 6) = [2; 1; 3; 6];;
