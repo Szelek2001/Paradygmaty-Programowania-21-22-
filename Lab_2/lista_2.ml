@@ -46,8 +46,8 @@ initSegment([], [1; 2; 43; 4]) = true;;
 let rec replaceNth (list, n, x) =
     match (list,n) with
     | ([],_) -> []
-    | (_,0) -> x :: List.tl list
-    | (_,_) -> List.hd list :: replaceNth(List.tl list, n - 1, x);;
+    | (head::tail,0) -> x :: tail
+    | (head::tai,_) -> head :: replaceNth(List.tl list, n - 1, x);;
 
 replaceNth(['o'; 'l'; 'a'; 'm'; 'a'; 'k'; 'o' ;'t' ;'a'], 1, 's') = ['o'; 's'; 'a'; 'm'; 'a'; 'k'; 'o' ;'t' ;'a'];;
 replaceNth(['f'; 'r'; 'i'; 'z'], 3, 's') = ['f'; 'r'; 'i'; 's'];;

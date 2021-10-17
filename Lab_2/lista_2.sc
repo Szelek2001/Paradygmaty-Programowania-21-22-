@@ -59,9 +59,10 @@ initSegment(List(),List(1)) == true
 
 def replaceNth[A](list: List[A], n: Int, x: A): List[A] =
   (list,n) match {
-    case(Nil,_) => Nil
-    case(_,0) => x :: list.tail
-    case(_,_) => list.head :: replaceNth(list.tail, n-1,x)
+    case (Nil, _) => Nil
+    case (head :: tail, 0) => x :: tail
+    case (head :: tail, _) => head :: replaceNth(tail, n-1, x)
+
   }
 
 replaceNth(List('o','l','a', 'm', 'a', 'k', 'o', 't', 'a'), 1, 's') == List('o', 's', 'a', 'm', 'a', 'k', 'o', 't', 'a')
