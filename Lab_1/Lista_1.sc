@@ -21,7 +21,6 @@ count("y", List("2", "3", "4", "fd")) == 0
 
 //Zadanie 3
 def replicate[A](x: A, n: Int): List[A] =
-  if (n < 0) throw new Exception("ujemna ilosc powtorzen")
   if n > 0 then
     x :: replicate(x, n - 1)
   else Nil
