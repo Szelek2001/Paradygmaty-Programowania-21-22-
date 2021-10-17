@@ -12,10 +12,10 @@ def fib(n:Int):Int =
 
 def fibTail(n: Int): Int ={
   @tailrec
-  def fibIn(n: Int, p: Int, s: Int): Int = n match {
-    case 0 => p
-    case 1 => s
-    case _ => fibIn(n - 1, s, p+s)}
+  def fibIn(n: Int, f1: Int, f2: Int): Int = n match {
+    case 0 => f1
+    case 1 => f2
+    case _ => fibIn(n - 1, f2, f1+f2)}
     fibIn(n, 0, 1)}
 
 //Zadanie 3
