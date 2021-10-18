@@ -58,6 +58,9 @@ root3Fun(2121) == 12.848336120716745
 val List(_, _, xa, _, _)  = List(-2,-1,0,1,2)
 val List(_, (xb, _))  = List( (1,2), (0,1) )
 
+xa == 0
+xb == 0
+
 //Zadanie 5
 def initSegment[A](list1: List[A], list2: List[A]): Boolean =
   (list1,list2) match
