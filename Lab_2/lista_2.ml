@@ -24,6 +24,21 @@ fibTail(1) = 1;;
 fib(10) = 55;;
 fibTail(10) = 55;;
 
+(*Zadanie 3*)
+
+let root3Tail a =
+  let rec root3In (a, i, x) =
+    if abs_float(x *. x *. x -. a) < 10e-15*.abs_float(a) then x
+    else  match i with
+      | 0 when a > 1. -> root3In(a, i+1, a/.3.)
+      | 0 ->  root3In(a, i+1, a)
+      |_ -> root3In(a, i + 1, x +. (a /. (x *. x) -. x)/. 3.)
+  in        root3In(a, 0, 0.);;
+
+root3Tail(100.) = 4.6415888336127793 ;;
+root3Tail(125.) = 5.;;
+root3Tail(2121.) = 12.848336120716745 ;;
+
 (*Zadanie 4*)
 
 let [_; _; xa; _; _;] =  [-2; -1; 0; 1; 2];;
@@ -35,7 +50,7 @@ let rec initSegment (list1,list2) =
     match (list1,list2) with
     | ([],_) -> true
     | (_,[]) -> false
-    | (_,_) -> if List.hd list1 = List.hd list2 then initSegment(List.tl list1, List.tl list2) else false;;
+    | (head1::tail1,head2::tail2) -> if head1 = head2 then initSegment(tail1, tail2) else false;;
 
 initSegment([1; 2; 3], [1; 2; 3; 4]) = true;;
 initSegment([1; 2; 3], [1; 2; 4; 4]) = false;;
