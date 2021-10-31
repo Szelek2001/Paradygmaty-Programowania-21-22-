@@ -2,7 +2,17 @@
 
 //Zadanie 2
 
-def curry3_bl[A,B,C,D](f: (A,B,C)=>D) = (x:A) => (y:B) => (z:C) => f(x,y,z)
+def curry3_zl[A, B, C, D](f: (A, B, C) => D) =
+  (x: A) => (y: B) => (z: C) => f(x, y, z)
+
+def curry3_bl[A, B, C, D](f: (A, B, C) => D)
+                         (x: A)(y: B)(z: C): D = f(x, y, z)
+
+def uncurry3_zl[A, B, C, D](f: A => B => C => D) =
+  (x: A, y: B, z: C) => f(x)(y)(z)
+
+def uncurry3_bl[A, B, C, D](f: A => B => C => D)
+                           (x: A, y: B, z: C): D = f(x)(y)(z)
 
 
 //Zadanie 3
