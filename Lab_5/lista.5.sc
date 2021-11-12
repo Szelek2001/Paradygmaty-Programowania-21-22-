@@ -23,8 +23,8 @@ val lfib: LazyList[Int] =
 
   fibonacci(0, 1)
 
-lfib.take(10).toList
-lfib.take(0).toList
+lfib.take(10).toList == List(0, 1, 1, 2, 3, 5, 8, 13, 21, 34)
+lfib.take(0).toList == List()
 
 //Zadanie 3
 
@@ -37,17 +37,17 @@ case object LEmpty extends lBT[Nothing]
 case class LNode[+A](elem: A, left: () => lBT[A], right: () => lBT[A]) extends lBT[A]
 
 def lBreadth[A](ltree: lBT[A]): LazyList[A] =
-  def lBreathrec[A](queue: List[lBT[A]]): LazyList[A] =
+  def lBreadthrec[A](queue: List[lBT[A]]): LazyList[A] =
     queue match
       case Nil => LazyList()
-      case LEmpty :: tail => lBreathrec(tail)
-      case LNode(value, l, r) :: t => value #:: lBreathrec(t ::: List(l(), r()))
+      case LEmpty :: tail => lBreadthrec(tail)
+      case LNode(value, l, r) :: t => value #:: lBreadthrec(t ::: List(l(), r()))
 
-  lBreathrec(List(ltree))
+  lBreadthrec(List(ltree))
 
 //b
 def lTree(n: Int): lBT[Int] =
   LNode(n, () => lTree(2 * n), () => lTree(2 * n + 1))
 
-lBreadth(lTree(1)).take(20).toList
-lBreadth(LEmpty).take(20).toList
+lBreadth(lTree(1)).take(20).toList == List(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
+lBreadth(LEmpty).take(20).toList == List()
