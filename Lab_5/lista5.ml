@@ -20,7 +20,7 @@ let lrepeat k lxs =
     match (lxs, n) with
     | (LNil, _) -> LNil
     | (LCons(_, lazy tail), 0) -> lrepeat2 k tail
-    | (LCons(head, _), _) -> LCons(head, lazy (lrepeat2 (n-1) lxs))
+    | (LCons(head, _), i) -> LCons(head, lazy (lrepeat2 (i-1) lxs))
   in lrepeat2 k lxs;;
 
 ltake (12, lrepeat 3 (toLazyList ['a'; 'b'; 'c'; 'd'])) = ['a'; 'a'; 'a'; 'b'; 'b'; 'b'; 'c'; 'c'; 'c'; 'd'; 'd'; 'd'];;
